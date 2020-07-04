@@ -1,71 +1,27 @@
 import React, { Component } from 'react'
 
 
-import firebaseDb from "../firebase";
+
 import * as firebase from "firebase";
 import { throwStatement } from "@babel/types";
 
+
+
+
 export class firebaseindian extends Component {
-    state = {
-        data: [],
+    
+       state = {
+      
         name: "",
         age: ""
       };
-    
-      componentDidMount() {
-        // pushing data in firebase
-        // firebase
-        //   .database()
-        //   .ref("tb_users")
-        //   .child("01")
-        //   .set({
-        //     name: "ali haider",
-        //     age: 21
-        //   });
-        // firebase
-        //   .database()
-        //   .ref("tb_users")
-        //   .push({
-        //     name: "Zeeshan",
-        //     age: 21
-        //   });
-        // fetching data in firebase
-        // firebase
-        //   .database()
-        //   .ref("tb_users")
-        //   .on("child_added", snapshot => {
-        //     // console.log(snapshot.val());
-        //     snapshot.forEach(res => {
-        //       // console.log(res.val());
-        //       this.state.data.push({
-        //         id: res.key,
-        //         ...res.val()
-        //       });
-        //       // console.log(res.key);
-        //       console.log(this.state);
-        //     });
-        //   });
-    
-        // update data
-        // firebase
-        //  .database()
-         // .ref("tb_users")
-        //  .child("-Lr3IVftNOEMP4ejtvq2")
-        //  .update({ age: 22 });
-    
-        
-          // remove data
-        // firebase
-        // .database()
-        // .ref("tb_users")
-        // .child("-Lr3IVftNOEMP4ejtvq2")
-        // .remove();
-      }
+
+     
     
       Submit = e => {
         e.preventDefault();
     
-        let isValid = false;
+       /* let isValid = false;
     
         firebase
           .database()
@@ -81,7 +37,7 @@ export class firebaseindian extends Component {
           .then(() => {
             if (isValid) {
               alert("duplcate name");
-            } else { 
+            } else { */
               firebase
                 .database()
                 .ref("tb_users")
@@ -90,16 +46,21 @@ export class firebaseindian extends Component {
                   age: this.state.age
                 });
             }
-          });
-      };
+         // });
+    //  };
+
+  
     
       render() {
         return (
           <div>
+          <div>
             <form onSubmit={e => this.Submit(e)}>
+            
               <input
                 placeholder="name"
                 onChange={e => this.setState({ name: e.target.value })}
+                value={this.state.name}
               />
               <input
                 placeholder="age"
@@ -108,6 +69,9 @@ export class firebaseindian extends Component {
               />
               <input type="submit" />
             </form>
+            <li><a href="http://localhost:3000/c">retrieve</a></li>
+          </div>
+          
           </div>
         );
       }
