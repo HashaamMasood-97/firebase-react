@@ -6,6 +6,8 @@ import firebaseindian from './components/firebase-indian'
 import Header from './components/Header'
 import retrieve from './components/indian-retrieve'
 import edituser from './components/edituser'
+import authenticaion from './components/authentication'
+import firebaseAuth from './components/firebaseAuth';
 
 function App() {
   return (
@@ -15,10 +17,12 @@ function App() {
  
         
         <Header />
-        <Route path ="/a" component= {Contacts} /> 
-        <Route path ="/b" component= {firebaseindian} />
+        <Route path ="/hooks" component= {Contacts} /> 
+        <Route path ="/simple" component= {firebaseindian} />
         <Route path ="/c" component= {retrieve} /> 
         <Route path ="/edituser/:id" component= {edituser} /> 
+        <Route path ="/auth" component= {authenticaion} /> 
+        <Route path ="/fireauth" component= {firebaseAuth} /> 
       </div>
     </div>
     </Router>
